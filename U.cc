@@ -415,3 +415,8 @@ bool U::operator==(const U & rhs) const {
 bool U::operator==(const string & s) const {
 	return charsRead == s;
 }
+
+// s == u
+bool operator==(const string & s, const U & rhs) {
+	return s == rhs.charsRead;
+}

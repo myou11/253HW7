@@ -303,7 +303,7 @@ int main() {
 
 		// testing with const obj == obj
 		U rWine;
-		string wine = "redWine";
+		const string wine = "redWine";
 		rWine = wine;
 		const U redWine(rWine);
 		cout << "Comparing const redWine and grapes, should be false: "  << (redWine == grapes) << '\n';
@@ -317,6 +317,13 @@ int main() {
 		// testing with const obj == s
 		cout << R"(Comparing const redWine and "redwine", should be false: )" << (redWine == "redwine") << '\n';
 		cout << R"(Comparing const redWine and "redWine", should be true: )" << (redWine == "redWine") << '\n';
+
+		// s == u
+
+		// testing with const s == const obj
+		const string wWine = "whiteWine";
+		cout << R"(Comparing const "whiteWine" with const redWine, should be false: )" << (wWine == redWine) << '\n';
+		cout << R"(Comparing const "redWine" with const redWine, should be true: )" << (wine == redWine) << '\n';
 
 		return 0;
 	}
