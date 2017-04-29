@@ -293,6 +293,27 @@ int main() {
 			}
 		}
 
+		/*
+		==========
+		Comparison
+		==========
+		*/
+
+		// u == u
+
+		// testing with const obj == obj
+		U rWine;
+		string wine = "redWine";
+		rWine = wine;
+		const U redWine(rWine);
+		cout << "Comparing const redWine and grapes, should be false: "  << (redWine == grapes) << '\n';
+
+		// testing with const obj == const obj
+		const U redWineDup(redWine);
+		cout << "Comparing const redWine and const redWineDup, should be true: " << (redWine == redWineDup) << '\n';
+
+
+
 		return 0;
 	}
 	catch (const string &msg) {

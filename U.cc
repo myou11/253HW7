@@ -403,3 +403,10 @@ ostream & operator<<(ostream & out, const U & rhs) {
 U::operator bool() const {
 	return !(empty());
 }
+
+// Comparison
+
+// u == u
+bool U::operator==(const U & rhs) const {
+	return charsRead == rhs.charsRead;
+}

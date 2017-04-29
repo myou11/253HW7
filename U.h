@@ -106,6 +106,11 @@ class U {
 		// Boolean evaluation
 		operator bool() const;
 
+		// Comparison
+
+		// u == u
+		bool operator==(const U & rhs) const;
+
 	private:
 
 		std::string charsRead; 						// stores all characters read thus far
