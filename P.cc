@@ -149,5 +149,10 @@ ostream & operator<<(ostream & out, const P & rhs) {
 			}
 		}
 	}
-	return out;
+	return out;	// return the modified stream
+}
+
+// Boolean evaluation
+P::operator bool() const {
+	return !(empty());	// p is false if it is empty, p is true when not empty
 }

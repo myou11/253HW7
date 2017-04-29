@@ -47,6 +47,9 @@ class P {
 		// Send a P to the output stream
 		friend std::ostream & operator<<(std::ostream & out, const P & rhs);
 
+		// Boolean evaluation
+		operator bool() const;
+
 	private:
 		std::map<int, std::string> propsMap;	// stores unicode and properties from propfile
 		std::map<std::string, int> countMap;	// stores occurences of the properties

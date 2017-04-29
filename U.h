@@ -103,6 +103,9 @@ class U {
 		// cout << u
 		friend std::ostream & operator<<(std::ostream & out, const U & rhs);
 
+		// Boolean evaluation
+		operator bool() const;
+
 	private:
 
 		std::string charsRead; 						// stores all characters read thus far

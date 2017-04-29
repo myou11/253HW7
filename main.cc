@@ -265,6 +265,34 @@ int main() {
 		P orange(pub + "UnicodeData.txt");
 		cout << "orange properties and counts are: " << orange << '\n';	// should be all properties
 
+		/*
+		==================
+		Boolean evaluation
+		==================
+		*/
+
+		// if (p)
+
+		// testing with const obj
+		if (mango)
+			cout << "mango is not empty!" << '\n';
+		else if (!mango)
+			cout << "boolean evaluation worked, mango is empty!" << '\n';
+
+		// while (!u)
+		U grapes;
+		int count = 0;
+		while (!grapes) {
+			if (count == 3) {
+				grapes = "wine";
+				cout << "grapes is now " << grapes << ", loop will end now\n";
+			}
+			else {
+				cout << "grapes is still empty\n";
+				++count;
+			}
+		}
+
 		return 0;
 	}
 	catch (const string &msg) {

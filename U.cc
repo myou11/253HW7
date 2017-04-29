@@ -398,3 +398,8 @@ ostream & operator<<(ostream & out, const U & rhs) {
 	out << rhs.get();	// get the accumulated string and send it to the output stream
 	return out;
 }
+
+// Boolean evaluation
+U::operator bool() const {
+	return !(empty());
+}
