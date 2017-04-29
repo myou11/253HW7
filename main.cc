@@ -231,6 +231,24 @@ int main() {
 			cout << "Should be invalid index error: " << s << '\n';
 		}
 
+		/*
+		====================
+		Sending u to ostream
+		====================
+		*/
+
+		// cout << u
+
+		// testing with const obj
+		cout << "constBanana should be butter: " << constBanana << '\n';
+
+		// testing with non-empty, then empty obj
+		U blackberry;
+		blackberry = "cheesecake";
+		cout << "blackberry should be cheesecake: " << blackberry << '\n';
+		blackberry.clear();
+		cout << "blackberry was cleared, should be '':" << blackberry << '\n';
+
 		return 0;
 	}
 	catch (const string &msg) {

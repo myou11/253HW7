@@ -362,26 +362,39 @@ U & U::operator+=(const U & rhs) {
 
 // Concatenation
 
-// Define u + u
+// u + u
 const U U::operator+(const U & rhs) const {	// 
 	U result(*this);	// make a copy of the lhs(this) to ensure we won't modify it
 	result += rhs;		// let operator+=(U) to do the work TODO probly wont work, will have to copy rhs as well
 	return result;		// return the result
 }
 
+// u + s
 const U U::operator+(const string & s) const {
 	U result(*this);	// make a copy of the lhs(this) to ensure we won't modify it
 	result += s;		// let operator+=(string) do the work
 	return result;		// return the result
 }
 
+// s + u
 const U operator+(const string & s, const U & rhs) {
 	U result;			// create a U to hold the string
 	result.append(s);	// add string to result
 	result += rhs;		// let operator+=(U) do the work
-	return result;
+	return result;		// return the new string obj
 }
 
+// Subscripting
+
+// u[index]
 string U::operator[](int index) const {
-	return get(index);
+	return get(index);	// let get(index) do the work
+}
+
+// Send u to output stream
+
+// cout << u
+ostream & operator<<(ostream & out, const U & rhs) {
+	out << rhs.get();	// get the accumulated string and send it to the output stream
+	return out;
 }

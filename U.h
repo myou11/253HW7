@@ -87,6 +87,8 @@ class U {
 
 		std::string operator[](int index) const;
 
+		friend std::ostream & operator<<(std::ostream & out, const U & rhs);
+
 	private:
 
 		std::string charsRead; 						// stores all characters read thus far
@@ -94,5 +96,7 @@ class U {
 };
 
 const U operator+(const std::string & s, const U & rhs);
+
+std::ostream & operator<<(std::ostream & out, const U & rhs);
 
 #endif
