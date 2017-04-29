@@ -128,6 +128,26 @@ bool P::empty() const {
 // Removes all data from the obj
 void P::clear() {
 	propsMap.clear();
+	countMap.clear();
 	propsSet.clear();
 	propOpened = false;
+}
+
+// Send a P to the output stream
+ostream & operator<<(ostream & out, const P & rhs) {
+	int count = 0;		// will track the last element
+	if (rhs.empty())	// if no props, return empty map
+		out << "{}";
+	else {
+		out << "{";		// begin print with opening brace
+		for (auto & prop : rhs.countMap) {
+			if (count == rhs.size() - 1)							// if last element in map
+				out << prop.first << ": " << prop.second << "}";	// add closing brace instead of comma
+			else {													// else concatenate the elements normally
+				out << prop.first << ": " << prop.second << ", ";
+				++count;											// incr count
+			}
+		}
+	}
+	return out;
 }

@@ -5,6 +5,7 @@
 #ifndef P_H
 #define P_H
 
+#include <iostream>
 #include <map>
 #include <set>
 #include <string>
@@ -43,10 +44,16 @@ class P {
 		// Removes all data from the obj
 		void clear();
 
+		// Send a P to the output stream
+		friend std::ostream & operator<<(std::ostream & out, const P & rhs);
+
 	private:
 		std::map<int, std::string> propsMap;	// stores unicode and properties from propfile
 		std::map<std::string, int> countMap;	// stores occurences of the properties
 		std::set<std::string> propsSet;			// stores properties from propfile
 		bool propOpened = false;				// bool to ensure only one properties file is read
 };
+
+std::ostream & operator<<(std::ostream & out, const P & rhs);
+
 #endif

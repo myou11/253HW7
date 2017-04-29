@@ -40,7 +40,7 @@ int main() {
 			cout << "Should be error: " << s << '\n';
 		}
 		
-		// append TODO: WHAT ARE THE WAYS THIS CAN FAIL?? SEE DESKTOP NOTE
+		// append
 		cout << "Before: " << u.get() << '\n';
 		u.append("marvεlΩus");
 		cout << "After: " << u.get() << '\n';
@@ -248,6 +248,22 @@ int main() {
 		cout << "blackberry should be cheesecake: " << blackberry << '\n';
 		blackberry.clear();
 		cout << "blackberry was cleared, should be '':" << blackberry << '\n';
+
+		/*
+		====================
+		Sending p to ostream
+		====================
+		*/
+
+		// cout << p
+
+		// testing with const obj
+		const P mango(p);	// copy the properties of p from above 
+		cout << "mango properties and counts are: " << mango << '\n';	// should be empty since p was cleared
+		
+		// testing with non const obj
+		P orange(pub + "UnicodeData.txt");
+		cout << "orange properties and counts are: " << orange << '\n';	// should be all properties
 
 		return 0;
 	}

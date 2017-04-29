@@ -6,6 +6,7 @@
 #define U_H
 
 #include <fstream>
+#include <iostream>
 #include <map>
 #include <set>
 #include <string>
@@ -74,19 +75,32 @@ class U {
 		U &operator=(const std::string & s);
 
 		// Append
+		
+		// u += s
 		U & operator+=(const std::string & s);
 
+		// u += u
 		U & operator+=(const U & rhs);
 
 		// Concatenation
+
+		// u + u
 		const U operator+(const U & rhs) const;
 
+		// u + s
 		const U operator+(const std::string & s) const;
 
+		// s + u
 		friend const U operator+(const std::string & s, const U & rhs);
 
+		// Subscripting
+
+		// u[index]
 		std::string operator[](int index) const;
 
+		// Send a U to the output stream
+
+		// cout << u
 		friend std::ostream & operator<<(std::ostream & out, const U & rhs);
 
 	private:
