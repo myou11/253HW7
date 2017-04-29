@@ -117,16 +117,31 @@ class U {
 		// s == u
 		friend bool operator==(const std::string & s, const U & rhs);
 
+		// u != u
+		bool operator!=(const U & rhs) const;
+
+		// u != s
+		bool operator!=(const std::string & s) const;
+
+		// s != u
+		friend bool operator!=(const std::string & s, const U & rhs);
+
 	private:
 
 		std::string charsRead; 						// stores all characters read thus far
 		std::vector<std::string> charsReadVect;		// stores UTF8 characters in each index
 };
 
+// s + u
 const U operator+(const std::string & s, const U & rhs);
 
+// cout << u
 std::ostream & operator<<(std::ostream & out, const U & rhs);
 
+// s == u
 bool operator==(const std::string & s, const U & rhs);
+
+// s != u
+bool operator!=(const std::string & s, const U & rhs);
 
 #endif

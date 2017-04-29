@@ -325,6 +325,24 @@ int main() {
 		cout << R"(Comparing const "whiteWine" with const redWine, should be false: )" << (wWine == redWine) << '\n';
 		cout << R"(Comparing const "redWine" with const redWine, should be true: )" << (wine == redWine) << '\n';
 
+		// u != u
+		
+		// testing const obj != const obj
+		cout << "const redWine != const redWineDup, should be false: " << (redWine != redWineDup) << '\n';
+
+		// testing const obj != obj
+		cout << "const redWine != apple, should be true: " << (redWine != apple) << '\n';
+
+		// u != s
+
+		// testing with const obj != const s
+		cout << R"(const constBanana != "butter", should be false: )" << (constBanana != "butter") << '\n';
+		cout << R"(const constBanana != "peanut", should be true: )" << (constBanana != "peanut") << '\n';
+
+		// s != u
+		cout << R"("butter" != constBanana, should be false: )" << ("butter" != constBanana) << '\n';
+		cout << R"("peanut" != constBanana, should be true: )" << ("peanut" != constBanana) << '\n';
+		
 		return 0;
 	}
 	catch (const string &msg) {

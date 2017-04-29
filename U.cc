@@ -408,15 +408,30 @@ U::operator bool() const {
 
 // u == u
 bool U::operator==(const U & rhs) const {
-	return charsRead == rhs.charsRead;
+	return charsRead == rhs.charsRead;	// compare the accumulated strings of the two objs
 }
 
 // u == s
 bool U::operator==(const string & s) const {
-	return charsRead == s;
+	return charsRead == s;	// compare the accumulated string and s
 }
 
 // s == u
 bool operator==(const string & s, const U & rhs) {
-	return s == rhs.charsRead;
+	return s == rhs.charsRead;	// compare the s and the accumulated string
+}
+
+// u != u
+bool U::operator!=(const U & rhs) const {
+	return !(*this == rhs);	// negate the result of u == u
+}
+
+// u != s
+bool U::operator!=(const string & s) const {
+	return !(*this == s);	// negate the result of u == s
+}
+
+// s != u
+bool operator!=(const string & s, const U & rhs) {
+	return !(s == rhs);	// negate the result of s == u
 }
