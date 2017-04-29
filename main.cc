@@ -126,6 +126,111 @@ int main() {
 		U ham = U(pub + "hamlet.txt");
 		cout << "Should be 182568: " << ham.size() << '\n';
 
+		
+		/* -------------- Op Overloading tests ----------------*/
+		
+		cout << "\n\n------------- Op Overloading tests ----------------\n\n";
+
+		U badFruit;	// used to test invalid cases
+
+		/* 	
+		==================
+		Assignment (u = s)
+		================== 	
+		*/
+
+		// testing with a const string
+		U apple;
+		apple.append("peanut butter");
+		cout << "apple should be peanut butter: " << apple.get() << '\n';
+		const string honey = "honey";
+		apple = honey;
+		cout << "Changed apple, should be honey: " << apple.get() << '\n';
+
+		// testing with invalid string
+		try {
+			badFruit = "\xFF";
+		} catch (const string & s) {
+			cout << "Tried to set badFruit = bad string, should be error: " << s << '\n';
+		}
+		
+		/*
+		======
+		Append
+		======
+		*/
+
+		// u += u
+		
+		// testing with a const obj
+		cout << "apple should be honey: " << apple.get() << '\n';
+		U banana;
+		banana.append("butter");
+		const U constBanana(banana);
+		apple += constBanana;
+		cout << "apple += const U, should be honeybutter: " << apple.get() << '\n';
+
+		// u += s
+		
+		// testing with a const string
+		const string good= " is good";
+		apple += good;
+		cout << R"(apple += const string, should be honeybutter is good: )" << apple.get() << '\n';
+
+		/*
+		=============
+		Concatenation
+		=============
+		*/
+		
+		// u + s
+		
+		// testing with a const string
+		U bananaMilk;
+		const string  milk = " is from churning milk";
+		bananaMilk =  banana + milk;
+		cout << "banana + const string, should be butter is from churning milk: " << bananaMilk.get() << '\n';
+
+		// u + u
+		
+		//testing with 2 const objs
+		U straw;
+		straw.append("straw");
+		const U constStraw(straw);
+		U berry;
+		berry.append("berry");
+		const U constBerry(berry);
+		U strawberry = straw + berry;
+		cout << "const U + const U, should be: " << strawberry.get() << '\n';
+
+		// s + u
+
+		// testing with a const string
+		const string chocolate = "chocolate";
+		U fondue;
+		fondue.append("fondue");
+		const U constFondue(fondue);
+		fondue = chocolate + constFondue;
+		cout << "const string + const U, should be chocolatefondue: " << fondue.get() << '\n';
+
+		/*
+		============
+		Subscripting
+		============
+		*/
+
+		// u[index]
+
+		// testing with const obj
+		cout << "constBanana[4], should be 'e': " << constBanana[4] << '\n';
+		
+		// testing with invalid index
+		try {
+			apple[-1];
+		} catch (const string &s) {
+			cout << "Should be invalid index error: " << s << '\n';
+		}
+
 		return 0;
 	}
 	catch (const string &msg) {

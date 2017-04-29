@@ -79,14 +79,20 @@ class U {
 		U & operator+=(const U & rhs);
 
 		// Concatenation
-		const U & operator+(const U & rhs) const;
+		const U operator+(const U & rhs) const;
 
-		const U & operator+(const std::string & s) const;
+		const U operator+(const std::string & s) const;
+
+		friend const U operator+(const std::string & s, const U & rhs);
+
+		std::string operator[](int index) const;
 
 	private:
 
 		std::string charsRead; 						// stores all characters read thus far
 		std::vector<std::string> charsReadVect;		// stores UTF8 characters in each index
 };
+
+const U operator+(const std::string & s, const U & rhs);
 
 #endif

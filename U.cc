@@ -339,36 +339,49 @@ void U::clear() {
 }
 
 // Operator Overloading
+// Assuming u is a U, p is a P, and s is a string in code below
 
 // Assignment
-const U & U::operator=(const string & s) {
-	this->charsRead = s;
-	// TODO: have to create a new vector with this string
-	return *this;
+U & U::operator=(const string & s) {
+	this->clear();		// clear the object because we are about to overwrite it
+	this->append(s);	// TODO might need to change append() to take a const string!!
+	return *this;		// return lhs(this)
 }
 
 // Append
-
 U & U::operator+=(const string & s) {
-	*this->append(s);
-	return *this;
+	this->append(s);	// append will add the accumulated string in rhs to our accumulated string and vector
+	return *this;		// return lhs(this)
 }
 
 U & U::operator+=(const U & rhs) {
-	U temp(rhs);
-	*this += temp.;
-	return *this;
+	U temp(rhs);					// make a copy of rhs to ensure we won't modify it
+	this->append(temp.charsRead);	// append will add the accumulated string in rhs to our accumulated string and vector
+	return *this;					// return the lhs(this)
 }
 
 // Concatenation
-const U & U::operator+(const U & rhs) const {
-	U result = *this;
-	*this += rhs;
+
+// Define u + u
+const U U::operator+(const U & rhs) const {	// 
+	U result(*this);	// make a copy of the lhs(this) to ensure we won't modify it
+	result += rhs;		// let operator+=(U) to do the work TODO probly wont work, will have to copy rhs as well
+	return result;		// return the result
+}
+
+const U U::operator+(const string & s) const {
+	U result(*this);	// make a copy of the lhs(this) to ensure we won't modify it
+	result += s;		// let operator+=(string) do the work
+	return result;		// return the result
+}
+
+const U operator+(const string & s, const U & rhs) {
+	U result;			// create a U to hold the string
+	result.append(s);	// add string to result
+	result += rhs;		// let operator+=(U) do the work
 	return result;
 }
 
-const U & U:: operator+(const string & s) const {
-	U result(*this);
-	result += s;
-	return result;
+string U::operator[](int index) const {
+	return get(index);
 }
