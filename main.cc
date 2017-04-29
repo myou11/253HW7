@@ -312,7 +312,11 @@ int main() {
 		const U redWineDup(redWine);
 		cout << "Comparing const redWine and const redWineDup, should be true: " << (redWine == redWineDup) << '\n';
 
-
+		// u == s
+		
+		// testing with const obj == s
+		cout << R"(Comparing const redWine and "redwine", should be false: )" << (redWine == "redwine") << '\n';
+		cout << R"(Comparing const redWine and "redWine", should be true: )" << (redWine == "redWine") << '\n';
 
 		return 0;
 	}

@@ -111,6 +111,9 @@ class U {
 		// u == u
 		bool operator==(const U & rhs) const;
 
+		// u == s
+		bool operator==(const std::string & s) const;
+
 	private:
 
 		std::string charsRead; 						// stores all characters read thus far
