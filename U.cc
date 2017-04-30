@@ -1,6 +1,6 @@
 // Name: Maxwell You
-// Date: 2017-03-27
-// Purpose: Implement program that read Unicode properties from a properties file and reads input files; implemented as a class
+// Date: 2017-04-29
+// Purpose: Overload operators
 
 #include "U.h"
 #include <iostream>
@@ -67,7 +67,7 @@ int U::bytes(int byte) const {
 
 	else {	// means byte is not valid UTF8 leading byte
 		ostringstream oss;
-		oss << "Not a valid UTF8 character. Bad leading byte: " << byte;
+		oss << "Not a valid UTF8 character. Bad leading byte: 0x"<< hex << byte;
 		throw oss.str();
 	}
 }
@@ -344,7 +344,7 @@ void U::clear() {
 // Assignment
 U & U::operator=(const string & s) {
 	this->clear();		// clear the object because we are about to overwrite it
-	this->append(s);	// TODO might need to change append() to take a const string!!
+	this->append(s);	// append the new string 
 	return *this;		// return lhs(this)
 }
 
@@ -365,7 +365,7 @@ U & U::operator+=(const U & rhs) {
 // u + u
 const U U::operator+(const U & rhs) const {	// 
 	U result(*this);	// make a copy of the lhs(this) to ensure we won't modify it
-	result += rhs;		// let operator+=(U) to do the work TODO probly wont work, will have to copy rhs as well
+	result += rhs;		// let operator+=(U) to do the work
 	return result;		// return the result
 }
 

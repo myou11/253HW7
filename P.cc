@@ -1,6 +1,6 @@
 // Name: Maxwell You
-// Date: 2017-04-15
-// Purpose: Handle properties
+// Date: 2017-04-29
+// Purpose: Overload operators
 
 #include "P.h"
 #include <iostream>

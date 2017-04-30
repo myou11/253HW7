@@ -1,6 +1,6 @@
 // Name: Maxwell You
-// Date: 2017-03-27
-// Purpose: Implement program that read Unicode properties from a properties file and reads input files; implemented as a class
+// Date: 2017-04-29
+// Purpose: Overload operators
 
 #ifndef U_H
 #define U_H
